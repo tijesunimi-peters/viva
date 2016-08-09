@@ -16,7 +16,7 @@ Doorkeeper::JWT.configure do
     user = User.find(opts[:resource_owner_id])
 
     {
-      # gen_id: Base64.encode64(rand(1000).to_s),
+      gen_id: Base64.encode64(rand(1000).to_s),
       user: {
         id: user.id,
         email: user.email

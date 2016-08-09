@@ -13,16 +13,16 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # post "/bucketlists", to: "bucketlists#create"
-      # get "/bucketlists", to: "bucketlists#all"
-      # get "/bucketlists/:id", to: "bucketlists#show"
-      # put "/bucketlists/:id", to: "bucketlists#update"
-      # delete "/bucketlists/:id", to: "bucketlists#destroy"
-      # post "/bucketlists/:id/items", to: "items#create"
-      # get "/bucketlists/:id/items", to: "items#all"
-      # get "/bucketlists/:id/items/:item_id", to: "items#show"
-      # put "/bucketlists/:id/items/:item_id", to: "items#update"
-      # delete "/bucketlists/:id/items/:item_id", to: "items#destroy"
+      post "/bucketlists", to: "bucketlists#create", as: :create_bucketlist
+      get "/bucketlists", to: "bucketlists#all"
+      get "/bucketlists/:id", to: "bucketlists#show"
+      put "/bucketlists/:id", to: "bucketlists#update"
+      delete "/bucketlists/:id", to: "bucketlists#destroy"
+      post "/bucketlists/:id/items", to: "items#create"
+      get "/bucketlists/:id/items", to: "items#all"
+      get "/bucketlists/:id/items/:item_id", to: "items#show"
+      put "/bucketlists/:id/items/:item_id", to: "items#update"
+      delete "/bucketlists/:id/items/:item_id", to: "items#destroy"
     end
   end
 end
