@@ -77,7 +77,7 @@ RSpec.describe "Buckelists", type: :request do
   end
 
   describe 'PUT /bucketlists/:id' do
-    context 'when bucket exists' do
+    context 'when bucketlist exists' do
       it 'updates bucketlist' do
         @bucketlist = create :bucketlist
         put '/api/v1/bucketlists/1', params: { bucketlist: {id: @bucketlist.id, name: "Hey"}.to_json }
