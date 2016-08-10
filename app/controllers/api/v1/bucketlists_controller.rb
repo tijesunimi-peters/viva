@@ -1,7 +1,21 @@
 class Api::V1::BucketlistsController < Api::ApisController
   before_action :get_bucketlist, only: [:show, :update, :destroy]
+
   def all
-    render json: current_user.bucketlists, key_transform: :underscore
+    if params[:limit] && params[:limit].to_i > 100
+      render json: { error: "Maximum result per request is 100" }, status: 413
+      return
+    end
+
+    if params[:page] && params[:limit]
+      render json: current_user.bucketlists.paginate(params[:page].to_i, params[:limit].to_i), key_transform: :underscore
+    elsif params[:page] && params[:limit].nil?
+      render json: current_user.bucketlists.paginate(params[:page].to_i), key_transform: :underscore
+    elsif params[:page].nil? && params[:limit]
+      render json: current_user.bucketlists.paginate(1, params[:limit].to_i), key_transform: :underscore
+    else
+      render json: current_user.bucketlists.paginate, key_transform: :underscore
+    end
   end
 
   def create
