@@ -1,6 +1,6 @@
 class Api::V1::BucketlistsController < Api::ApisController
   def all
-    render json: Bucketlist.all
+    render json: current_user.bucketlists, key_transform: :underscore
   end
 
   def create
@@ -14,6 +14,19 @@ class Api::V1::BucketlistsController < Api::ApisController
     else
       render json: { error: "Request not understood" }, status: 422
     end
+  end
+
+  def show
+    bktlist = Bucketlist.find_by(id: params["id"])
+    if bktlist
+      render json: bktlist, except: :items
+    else
+      render json: { error: "Bucketlist not found" }, status: 404
+    end
+  end
+
+  def update
+    
   end
 
   private

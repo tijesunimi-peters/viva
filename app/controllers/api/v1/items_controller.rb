@@ -1,2 +1,2 @@
-class Api::V1::ItemsController < ApplicationController
+class Api::V1::ItemsController < Api::ApisController
 end
