@@ -75,4 +75,16 @@ RSpec.describe "Buckelists", type: :request do
       end
     end
   end
+
+  describe 'PUT /bucketlists/:id' do
+    context 'when bucket exists' do
+      it 'updates bucketlist' do
+        @bucketlist = create :bucketlist
+        put '/api/v1/bucketlists/1', params: { bucketlist: {id: @bucketlist.id, name: "Hey"}.to_json }
+        expect(response).to have_http_status 200
+        bktlist = Bucketlist.find_by id: 1
+        expect(bktlist.name).to eql("Hey")
+      end
+    end
+  end
 end
