@@ -92,13 +92,13 @@ RSpec.describe "Buckelists", type: :request do
     context 'when bucketlist exist' do
       before do
         create :bucketlist
-        create :bucketlist, Faker::Name.name
+        create :bucketlist, name: Faker::Name.name
       end
 
       it 'deletes the bucketlist' do
-        delete "/api/v1/buckelists/1"
+        delete "/api/v1/bucketlists/1"
         expect(response).to have_http_status(200)
-        bklist = Bucketlist.find_by id: 1
+        bktlist = Bucketlist.find_by id: 1
         expect(bktlist).to be_nil
       end
     end

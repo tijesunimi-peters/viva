@@ -1,5 +1,5 @@
 class Api::V1::BucketlistsController < Api::ApisController
-  before_action :get_bucketlist, only: [:show, :update]
+  before_action :get_bucketlist, only: [:show, :update, :destroy]
   def all
     render json: current_user.bucketlists, key_transform: :underscore
   end
@@ -29,7 +29,15 @@ class Api::V1::BucketlistsController < Api::ApisController
     if @bktlist.update process_params
       render json: { success: "Bucketlist Updated" }, status: 200
     else
-      render json: { success: "Error occured" }, status: 500
+      render json: { error: "Error occured" }, status: 500
+    end
+  end
+
+  def destroy
+    if @bktlist.destroy
+      render json: { success: "Bucketlist Deleted" }, status: 200
+    else
+      render json: { error: "Error Occured" }, status: 500
     end
   end
 
