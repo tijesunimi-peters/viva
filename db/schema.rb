@@ -23,8 +23,11 @@ ActiveRecord::Schema.define(version: 20160808213457) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "bucketlist_id"
+    t.boolean  "done"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["bucketlist_id"], name: "index_items_on_bucketlist_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
