@@ -1,5 +1,6 @@
 class Api::V1::BucketlistsController < Api::ApisController
   before_action :get_bucketlist, only: [:show, :update, :destroy]
+  before_action :get_bucketlists, only: [:all]
 
   def all
     if params[:limit] && params[:limit].to_i > 100
@@ -7,15 +8,7 @@ class Api::V1::BucketlistsController < Api::ApisController
       return
     end
 
-    if params[:page] && params[:limit]
-      render json: current_user.bucketlists.paginate(params[:page].to_i, params[:limit].to_i), key_transform: :underscore
-    elsif params[:page] && params[:limit].nil?
-      render json: current_user.bucketlists.paginate(params[:page].to_i), key_transform: :underscore
-    elsif params[:page].nil? && params[:limit]
-      render json: current_user.bucketlists.paginate(1, params[:limit].to_i), key_transform: :underscore
-    else
-      render json: current_user.bucketlists.paginate, key_transform: :underscore
-    end
+    render json: @bucketlists, key_transform: :underscore
   end
 
   def create
@@ -71,5 +64,12 @@ class Api::V1::BucketlistsController < Api::ApisController
 
   def get_bucketlist
     @bktlist = current_user.bucketlists.find_by(id: params["id"])
+  end
+
+  def get_bucketlists
+    return if params[:limit] && params[:limit].to_i > 100
+    query = params[:q]
+    @bucketlists = query ? current_user.bucketlists.search(query) :
+      current_user.bucketlists.paginate(params[:page].to_i, params[:limit].to_i)
   end
 end

@@ -13,7 +13,8 @@ RSpec.describe "Buckelists", type: :request do
   describe "POST /buckelists" do
     context 'when json format is correct' do
       it "returns 201 success" do
-        post "/api/v1/bucketlists", params: { bucketlist: { name: "Helloe" }.to_json }
+        post "/api/v1/bucketlists", params: { bucketlist:
+          { name: "Helloe" }.to_json }
         expect(response).to have_http_status(201)
       end
     end
@@ -80,7 +81,8 @@ RSpec.describe "Buckelists", type: :request do
     context 'when bucketlist exists' do
       it 'updates bucketlist' do
         @bucketlist = create :bucketlist
-        put '/api/v1/bucketlists/1', params: { bucketlist: {id: @bucketlist.id, name: "Hey"}.to_json }
+        put '/api/v1/bucketlists/1', params: { bucketlist:
+          { id: @bucketlist.id, name: "Hey"}.to_json }
         expect(response).to have_http_status 200
         bktlist = Bucketlist.find_by id: 1
         expect(bktlist.name).to eql("Hey")
@@ -153,6 +155,26 @@ RSpec.describe "Buckelists", type: :request do
       it 'returns 413 error' do
         get '/api/v1/bucketlists?page=1&limit=101'
         expect(response).to have_http_status(413)
+      end
+    end
+  end
+
+  describe "GET /bucketlists?q=query" do
+    before do
+      10.times do |i|
+        create :bucketlist, name: "name#{i}"
+      end
+    end
+
+    context 'when there is a search query' do
+      it 'should return results for the search na' do
+        get "/api/v1/bucketlists?q=na"
+        result = JSON.parse(response.body)["bucketlists"]
+        expect(result.size).to eql(10)
+
+        get '/api/v1/bucketlists?q=1'
+        result = JSON.parse(response.body)["bucketlists"]
+        expect(result.size).to eql(1)
       end
     end
   end
