@@ -14,7 +14,7 @@ RSpec.describe "ItemsRequests", type: :request do
   describe "POST /bucketlists/:id/items" do
     it "create items" do
       bucketlist = create :bucketlist
-      post "/api/v1/bucketlists/1/items", params: { item: { name: "Hello" }.to_json }
+      post "/api/v1/bucketlists/1/items", params: { name: "Hello" }
       expect(response).to have_http_status(201)
     end
   end
@@ -72,7 +72,7 @@ RSpec.describe "ItemsRequests", type: :request do
     describe 'PUT /bucketlist/:id/items/:id' do
       context 'when update is successful' do
         it "returns 200 status" do
-          put "/api/v1/bucketlists/1/items/1", params: { item: { name: "Hello" }.to_json }
+          put "/api/v1/bucketlists/1/items/1", params: { name: "Hello" }
           expect(response).to have_http_status 200
           item = Item.find_by id: 1
 
