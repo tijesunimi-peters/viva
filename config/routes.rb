@@ -7,12 +7,13 @@ Rails.application.routes.draw do
     scope "session", controller: "sessions" do
       get "/new", action: :new, as: :new_session
       post "/create", action: :create, as: :create_session
-      post "/logout", action: :logout
+      get "/logout", action: :logout
     end
   end
 
   namespace :api do
     namespace :v1 do
+      get "/user", to: "users#show"
       post "/bucketlists", to: "bucketlists#create", as: :create_bucketlist
       get "/bucketlists", to: "bucketlists#all"
       get "/bucketlists/:id", to: "bucketlists#show"

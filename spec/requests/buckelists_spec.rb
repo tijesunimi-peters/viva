@@ -11,18 +11,24 @@ RSpec.describe "Buckelists", type: :request do
   end
 
   describe "POST /buckelists" do
-    context 'when json format is correct' do
+    context 'when params valid' do
       it "returns 201 success" do
-        post "/api/v1/bucketlists", params: { bucketlist:
-          { name: "Helloe" }.to_json }
+        post "/api/v1/bucketlists", params: { name: "Helloe" }
         expect(response).to have_http_status(201)
       end
     end
 
-    context 'when json format is not correct' do
-      it 'returns 422 error' do
-        post "/api/v1/bucketlists", params: { name: "Helloe" }.to_json
-        expect(response).to have_http_status 422
+    context 'when params not valid' do
+      it 'returns 500 error' do
+        post "/api/v1/bucketlists", params: { namr: "Helloe" }
+        expect(response).to have_http_status 500
+      end
+    end
+
+    context 'when params is not passed' do
+      it 'returns 500 error' do
+        post "/api/v1/bucketlists"
+        expect(response).to have_http_status 500
       end
     end
   end
@@ -81,8 +87,11 @@ RSpec.describe "Buckelists", type: :request do
     context 'when bucketlist exists' do
       it 'updates bucketlist' do
         @bucketlist = create :bucketlist
-        put '/api/v1/bucketlists/1', params: { bucketlist:
-          { id: @bucketlist.id, name: "Hey"}.to_json }
+        put '/api/v1/bucketlists/1', params: {
+          id: @bucketlist.id,
+          name: "Hey"
+        }
+        
         expect(response).to have_http_status 200
         bktlist = Bucketlist.find_by id: 1
         expect(bktlist.name).to eql("Hey")

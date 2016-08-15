@@ -12,17 +12,12 @@ class Api::V1::BucketlistsController < Api::ApisController
   end
 
   def create
-    payload = process_params(allowed_params[:bucketlist])
-    if payload
-      bktlist = current_user.bucketlists.create payload
-      if bktlist.errors.empty?
-        render json: { success: "Bucketlist Successfully created" }, status: 201
-        return
-      end
-      render json: { error: "Error occured" }, status: 500
-    else
-      render json: { error: "Request not understood" }, status: 422
+    bucketlist = current_user.bucketlists.create allowed_params
+    if bucketlist.errors.empty?
+      render json: bucketlist, status: 201
+      return
     end
+    render json: bucketlist.errors.full_messages, status: 500
   end
 
   def show
@@ -34,8 +29,8 @@ class Api::V1::BucketlistsController < Api::ApisController
   end
 
   def update
-    if @bucketlist.update process_params allowed_params[:bucketlist]
-      render json: { success: "Bucketlist Updated" }, status: 200
+    if @bucketlist.update allowed_params
+      render json: @bucketlist, status: 200
     else
       render json: { error: "Error occured" }, status: 500
     end
@@ -52,7 +47,7 @@ class Api::V1::BucketlistsController < Api::ApisController
   private
 
   def allowed_params
-    params.permit(:bucketlist)
+    params.permit(:id, :name)
   end
 
   def get_bucketlists

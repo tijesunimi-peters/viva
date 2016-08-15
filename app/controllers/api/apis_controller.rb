@@ -10,12 +10,4 @@ class Api::ApisController < ActionController::API
   def get_bucketlist
     @bucketlist = current_user.bucketlists.find_by(id: params[:id])
   end
-
-  def process_params(payload)
-    begin
-      JSON.parse payload
-    rescue
-      false
-    end
-  end
 end
