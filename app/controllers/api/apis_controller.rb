@@ -6,4 +6,16 @@ class Api::ApisController < ActionController::API
   def current_user
     User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
   end
+
+  def get_bucketlist
+    @bucketlist = current_user.bucketlists.find_by(id: params[:id])
+  end
+
+  def process_params(payload)
+    begin
+      JSON.parse payload
+    rescue
+      false
+    end
+  end
 end

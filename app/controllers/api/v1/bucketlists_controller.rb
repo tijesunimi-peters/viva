@@ -12,8 +12,9 @@ class Api::V1::BucketlistsController < Api::ApisController
   end
 
   def create
-    if process_params
-      bktlist = current_user.bucketlists.create process_params
+    payload = process_params(allowed_params[:bucketlist])
+    if payload
+      bktlist = current_user.bucketlists.create payload
       if bktlist.errors.empty?
         render json: { success: "Bucketlist Successfully created" }, status: 201
         return
@@ -25,15 +26,15 @@ class Api::V1::BucketlistsController < Api::ApisController
   end
 
   def show
-    if @bktlist
-      render json: @bktlist, except: :items
+    if @bucketlist
+      render json: @bucketlist, except: :items
     else
       render json: { error: "Bucketlist not found" }, status: 404
     end
   end
 
   def update
-    if @bktlist.update process_params
+    if @bucketlist.update process_params allowed_params[:bucketlist]
       render json: { success: "Bucketlist Updated" }, status: 200
     else
       render json: { error: "Error occured" }, status: 500
@@ -41,7 +42,7 @@ class Api::V1::BucketlistsController < Api::ApisController
   end
 
   def destroy
-    if @bktlist.destroy
+    if @bucketlist.destroy
       render json: { success: "Bucketlist Deleted" }, status: 200
     else
       render json: { error: "Error Occured" }, status: 500
@@ -52,18 +53,6 @@ class Api::V1::BucketlistsController < Api::ApisController
 
   def allowed_params
     params.permit(:bucketlist)
-  end
-
-  def process_params
-    begin
-      JSON.parse allowed_params[:bucketlist]
-    rescue
-      false
-    end
-  end
-
-  def get_bucketlist
-    @bktlist = current_user.bucketlists.find_by(id: params["id"])
   end
 
   def get_bucketlists
