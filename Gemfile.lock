@@ -255,9 +255,11 @@ DEPENDENCIES
   pry
   puma (~> 3.0)
   rails (~> 5.0.0)
+  rake
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

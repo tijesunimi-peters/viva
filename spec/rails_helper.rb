@@ -5,6 +5,15 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'database_cleaner'
+require 'coveralls'
+require 'simplecov'
+Coveralls.wear!
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+   add_filter '/app/controllers/api/apis_controller.rb'
+   add_filter '/spec/rails_helper.rb'
+   add_filter '/config/initializers/doorkeeper.rb'
+end
 
 ActiveRecord::Migration.maintain_test_schema!
 
