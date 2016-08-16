@@ -1,13 +1,5 @@
 class Api::V1::UsersController < Api::ApisController
-  before_action :doorkeeper_authorize!
-
   def show
-    render json: current_user.as_json
-  end
-
-  private
-
-  def current_user
-    User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+    render json: current_user, key_transform: :underscore
   end
 end

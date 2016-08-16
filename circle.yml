@@ -8,7 +8,9 @@ machine:
 ## Customize dependencies
 dependencies:
   pre:
-    - gem install bundler 
+    - gem install bundler
+    - bundle install
+    - bundle exec rails db:migrate RAILS_ENV=test
 
   override:
     - bundle install: # note ':' here
