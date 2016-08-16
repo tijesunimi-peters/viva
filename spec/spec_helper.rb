@@ -1,5 +1,7 @@
 require 'coveralls'
+require 'simplecov'
 Coveralls.wear!
+
 
 RSpec.configure do |config|
 
@@ -12,4 +14,11 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+end
+
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start do
+   add_filter '/spec/controllers/api/apis_controller_spec.rb'
+   add_filter '/spec/rails_helper.rb'
+   add_filter '/config/initializers/doorkeeper.rb'
 end

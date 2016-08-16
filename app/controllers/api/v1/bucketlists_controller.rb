@@ -1,8 +1,8 @@
 class Api::V1::BucketlistsController < Api::ApisController
   before_action :get_bucketlist, only: [:show, :update, :destroy]
-  before_action :get_bucketlists, only: [:all]
+  before_action :get_bucketlists, only: [:index]
 
-  def all
+  def index
     if params[:limit] && params[:limit].to_i > 100
       render json: { error: "Maximum result per request is 100" }, status: 413
       return
