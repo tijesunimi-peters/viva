@@ -12,16 +12,35 @@ RSpec.describe "ItemsRequests", type: :request do
 
 
   describe "POST /bucketlists/:id/items" do
-    it "create items" do
-      bucketlist = create :bucketlist
-      post "/api/v1/bucketlists/1/items", params: { name: "Hello" }
-      expect(response).to have_http_status(201)
+    context 'when details validate' do
+      it "create items" do
+        bucketlist = create :bucketlist
+        post "/api/v1/bucketlists/1/items", params: { name: "Hello" }
+        expect(response).to have_http_status(201)
+      end
+    end
+
+    context 'when details dont validate' do
+      it 'does not create item' do
+        bucketlist = create :bucketlist
+        post "/api/v1/bucketlists/1/items", params: { name: "" }
+        expect(response).to have_http_status(500)
+      end
     end
   end
 
   describe "GET /bucetlist/:id/items" do
     before do
       create :bucketlist
+    end
+
+    context 'when bucketlist does not exist' do
+      it "returns 404 error" do
+        get "/api/v1/bucketlists/3/items"
+        expect(response).to have_http_status(404)
+        result = JSON.parse(response.body)["error"]
+        expect(result).to eql("Bucketlist not found")
+      end
     end
 
     context 'when bucketlist has items' do
@@ -84,6 +103,13 @@ RSpec.describe "ItemsRequests", type: :request do
         it "returns a 404 error" do
           get "/api/v1/bucketlists/1/items/2"
           expect(response).to have_http_status 404
+        end
+      end
+
+      context 'when update details does not validate' do
+        it "returns a 500 error" do
+          put "/api/v1/bucketlists/1/items/1", params: { name: "" }
+          expect(response).to have_http_status 500
         end
       end
     end
