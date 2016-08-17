@@ -26,6 +26,7 @@ group :development, :test do
   gem "faker"
   gem "rake"
   gem "simplecov"
+  gem 'rails-controller-testing'
 end
 
 group :development do
