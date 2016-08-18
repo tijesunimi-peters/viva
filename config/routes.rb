@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   use_doorkeeper
-  root "landings#index"
+
+   get "/" => redirect("/index.html")
   scope "/user", controller: "users" do
     get "/new", action: :new
     post "/create", action: :create
