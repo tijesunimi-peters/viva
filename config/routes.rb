@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   use_doorkeeper
+  root "landings#index"
 
-   get "/" => redirect("/index.html")
+  get "/docs", to: redirect("/docs/index.html")
+
   scope "/user", controller: "users" do
     get "/new", action: :new
     post "/create", action: :create
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "/user", to: "users#show"
-      post "/bucketlists", to: "bucketlists#create", as: :create_bucketlist
+      post "/bucketlists", to: "bucketlists#create"
       get "/bucketlists", to: "bucketlists#index"
       get "/bucketlists/:id", to: "bucketlists#show"
       put "/bucketlists/:id", to: "bucketlists#update"
@@ -25,6 +27,10 @@ Rails.application.routes.draw do
       get "/bucketlists/:id/items/:item_id", to: "items#show"
       put "/bucketlists/:id/items/:item_id", to: "items#update"
       delete "/bucketlists/:id/items/:item_id", to: "items#destroy"
+
+      match "*url", to: "apis#route_not_found", via: :all
     end
   end
+
+  match "*url", to: "application#route_not_found", via: :all
 end

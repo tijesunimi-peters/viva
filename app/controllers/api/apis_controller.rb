@@ -1,13 +1,19 @@
-class Api::ApisController < ActionController::API
-  before_action :doorkeeper_authorize!
+module Api
+  class ApisController < ActionController::API
+    before_action :doorkeeper_authorize!
 
-  private
+    def route_not_found
+      render json: { error: "Route not found" }, status: 404
+    end
 
-  def current_user
-    User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
-  end
+    private
 
-  def get_bucketlist
-    @bucketlist = current_user.bucketlists.find_by(id: params[:id])
+    def current_user
+      User.find(doorkeeper_token.resource_owner_id) if doorkeeper_token
+    end
+
+    def get_bucketlist
+      @bucketlist = current_user.bucketlists.find_by(id: params[:id])
+    end
   end
 end

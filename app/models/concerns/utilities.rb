@@ -1,5 +1,5 @@
 module Utilities
-   def date_created
+  def date_created
     object.created_at.strftime("%Y-%m-%d %l:%M:%S")
   end
 

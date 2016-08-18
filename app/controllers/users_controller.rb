@@ -1,4 +1,4 @@
- class UsersController < ApplicationController
+class UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -9,7 +9,9 @@
       flash[:success] = "Registration Successful"
       redirect_to root_path
     else
-      flash[:errors] = @user.errors.full_messages.map { |msg| "#{msg}<br>" }.join
+      flash[:errors] = @user.errors.full_messages.map do |msg|
+        "#{msg}<br>"
+      end.join
       render :new
     end
   end
@@ -18,11 +20,11 @@
 
   def user_params
     params.require(:user).permit(
-                                 :firstname,
-                                 :lastname,
-                                 :email,
-                                 :password,
-                                 :password_confirmation
-                                 )
+      :firstname,
+      :lastname,
+      :email,
+      :password,
+      :password_confirmation
+    )
   end
 end

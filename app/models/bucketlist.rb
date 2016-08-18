@@ -5,8 +5,8 @@ class Bucketlist < ApplicationRecord
   validates :name, presence: true, allow_nil: false
 
   def self.paginate(page = 1, limit = 20)
-    page = 1 if page == 0
-    limit = 20 if limit == 0
+    page = 1 if page.zero?
+    limit = 20 if limit.zero?
     offset_number = (page - 1) * limit
     offset(offset_number).limit(limit)
   end

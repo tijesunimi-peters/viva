@@ -86,20 +86,21 @@
   color: #90a959;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <link href="docs/stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="docs/stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="docs/javascripts/all.js"></script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="/docs/images/navbar.png" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <!-- <img src="docs/images/logo.png" /> -->
+      <div style="text-align: center"><h1 style="color: white">VIVA</h1></div>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
               <a href="#" data-language-name="ruby">ruby</a>
@@ -128,7 +129,7 @@
 
 <p>On the left are navigation helpers to help you search this document or jump through to specific sections.</p>
 
-<p>The base url for the API is <a href="https://viva.herokuapp.com">Viva</a></p>
+<p>The base url for the API is <a href="/">Viva</a></p>
 
 <p>Current version of API is version 1</p>
 
@@ -137,13 +138,13 @@
 <p>This invloves:</p>
 
 <ol>
-<li><p>Creating an account. To create an account now, visit <a href="http://viva.herokuapp.com/user/new">Register</a></p></li>
-<li><p>Login. To login, visit <a href="http://viva.herokuapp.com/user/session/new">Login</a></p></li>
+<li><p>Creating an account. To create an account now, visit <a href="/user/new">Register</a></p></li>
+<li><p>Login. To login, visit <a href="/user/session/new">Login</a></p></li>
 </ol>
 
 <h1 id="authorization">Authorization</h1>
 
-<p>You have to register your app at <a href="http://viva.herokuapp.com/oauth/applications">Register App</a></p>
+<p>You have to register your app at <a href="/oauth/applications">Register App</a></p>
 
 <p>After registration of your app, then you should see:</p>
 
@@ -226,7 +227,7 @@ http://YOUR_CALLBACK_URI?code=VIVA_GENERATED_CODE
 Your callback uri is the route you want Viva to redirect to after user authorization
 </aside>
 
-<h2 id="using-rest-client">Using REST-CLIENT</h2>
+<h2 id="using-rest-client">Using RestClient</h2>
 
 <h3 id="install-restclient">Install RestClient</h3>
 <pre class="highlight ruby"><code><span class="c1"># On the terminal, cd into the project directory and run:</span>

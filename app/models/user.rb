@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :bucketlists
-  
+
   validates :firstname,
             :lastname,
             presence: true
