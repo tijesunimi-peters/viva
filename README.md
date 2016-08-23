@@ -1,4 +1,4 @@
-# Viva API [![Build Status](https://travis-ci.org/andela-tpeters/viva.svg?branch=develop)](https://travis-ci.org/andela-tpeters/viva) [![Coverage Status](https://coveralls.io/repos/github/andela-tpeters/viva/badge.svg?branch=develop)](https://coveralls.io/github/andela-tpeters/viva?branch=develop)
+# Viva API [![Build Status](https://travis-ci.org/andela-tpeters/viva.svg?branch=develop)](https://travis-ci.org/andela-tpeters/viva) [![Coverage Status](https://coveralls.io/repos/github/andela-tpeters/viva/badge.svg?branch=develop)](https://coveralls.io/github/andela-tpeters/viva?branch=develop) [![Code Climate](https://codeclimate.com/github/andela-tpeters/viva/badges/gpa.svg)](https://codeclimate.com/github/andela-tpeters/viva)
 
 ## Overview
 
