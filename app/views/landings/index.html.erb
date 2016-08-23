@@ -1,6 +1,56 @@
-<h1>Welcome to Viva</h1>
-<% if session[:user_id] %>
-    <%= link_to("Logout",  logout_path, method: :post ) %>
-<% else %>
-    <%= link_to "Login", new_session_path %>
-<% end %>
+<div class="homepage-bg pad10">
+  <div class="container" style="height: 700px">
+    <div class="row">
+        <div class="flex col-xs-12">
+          <div class="flex center col-xs-12 col-sm-12 col-md-1 col-lg-1">
+            <a href="/">
+              <h1 class="white center">Viva</h1>
+            </a>
+          </div>
+          <div class="flex center justify-end col-sm-12 col-lg-11">
+            <div class="flex justify-end col-xs-6">
+              <a href="/docs" class="btn viva-btn uppercase">Documentation</a>
+              <a href="/oauth/applications" class="btn viva-btn uppercase">OAuth Apps</a>
+              <% if session[:user_id] %>
+                <%= link_to("Logout",  logout_path, class: "btn viva-btn uppercase" ) %>
+              <% else %>
+                <%= link_to "Login", new_session_path, class: "btn viva-btn uppercase" %>
+                <a href="/user/new" class="btn viva-btn uppercase">Register</a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 flex">
+          <div class="flex center col-xs-12" style="height: 82.6vh; min-height: 578px">
+            <div class="col-xs-6">
+              <div class="col-lg-12 white pad10">
+                <div class="welcome-text">
+                  <h1 class="white center">Live your dreams</h1>
+                </div>
+                <em>
+                  ...keep track of your dreams with viva
+                </em>
+              </div>
+              <hr />
+              <div class="note col-xs-12 white pad10" style="font-size: 16px; opacity: 0.9">
+                <p> Viva is an OAuth2 API provider that lets you manage a bucket list.<br /> A bucket list is simply a number of experiences or achievements that a person hopes to have or accomplish during their lifetime. </p>
+                <p class="g-started">
+                  <a href="/docs" class="btn uppercase viva-btn">Get Started here</a>
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="flex end">
+      <div class="col-xs-12 flex">
+        <div class="flex center col-xs-3 justify-between white uppercase" style="height: 50px; padding: 0; font-size: 10px; color: rgba(255,255,255,.8)">
+          <span>&copy; 2016 Viva</span>
+          <span>All Rigths Reserved</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,39 @@
-<%= form_tag create_session_path, method: :post do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %><br>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Login" %>
-<% end %>
+<div class="contaner" style="background-color: rgb(50,50,64)">
+  <div class="row">
+    <div class="col-xs-12 flex" style="height: 100vh;">
+      <div class="flex center justify-center" style="width: 100%">
+        <div class="login-form" style="border: 1px solid rgba(255,255,255,.2); width: 50%">
+          <h1 class="center white">Login</h1>
+            <% if flash[:login_errors] %>
+            <div class="red" style="font-size: 11px">
+              <%= flash[:login_errors].html_safe %>
+            </div>
+            <% end %>
+          <%= form_tag create_session_path, method: :post, class: "form-horizontal col-xs-12" do %>
+          <div class="form-group">
+            <%= label_tag :email, nil, class: "col-xs-2 control-label white" %>
+            <div class="col-xs-10">
+              <%= email_field_tag :email, nil, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= label_tag :password, nil, class: "col-xs-2 control-label white" %>
+            <div class="col-xs-10">
+              <%= password_field_tag :password, nil, class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-10 col-xs-offset-2">
+              <%= submit_tag "Login", class: "btn uppercase form-btn white" %>
+            </div>
+          </div>
+          <% end %>
+          <div class="uppercase col-xs-6" style="margin-top: 20px; font-size: 11px">
+            <a href="/" class="col-xs-4">Home</a>
+            <a href="/user/new" class="col-xs-6">Register here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

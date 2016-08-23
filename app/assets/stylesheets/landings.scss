@@ -1,3 +1,179 @@
-// Place all the styles related to the landings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+.homepage-bg {
+  background: $black image_url('homepage.jpg') no-repeat fixed center;
+  background-size: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.homepage-bg::before {
+  background-color: $black-half;
+  content: '';
+  height: 100%;
+  margin: -10px;
+  position: absolute;
+  width: 100%;
+}
+
+a {
+  color: $white;
+}
+
+a:hover {
+  color: $menu-hover;
+  text-decoration: none;
+}
+
+.welcome-text {
+  color: $white;
+
+  h1 {
+    padding: 0;
+  }
+}
+
+.note {
+  font-size: 18px;
+
+  p {
+    line-height: 37px;
+  }
+}
+
+.flex {
+  display: flex;
+
+  .center {
+    align-items: center;
+  }
+
+  .end {
+    align-items: flex-end;
+  }
+
+  .bottom {
+    align-items: baseline;
+  }
+
+  .start {
+    align-items: flex-start;
+  }
+
+  .justify-center {
+    justify-content: center;
+  }
+
+  .justify-end {
+    justify-content: flex-end;
+  }
+
+  .justify-start {
+    justify-content: flex-start;
+  }
+
+  .justify-around {
+    justify-content: space-around;
+  }
+
+  .justify-between {
+    justify-content: space-around;
+  }
+}
+
+.viva-btn {
+  border-radius: unset;
+  color: $white;
+  font-size: 12px;
+  transition: all .2s ease;
+}
+
+.viva-btn:hover {
+  border-bottom: 5px solid;
+  color: $menu-hover;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.border {
+  border: 1px solid $white;
+}
+
+.white {
+  color: $white;
+}
+
+
+.pad10 {
+  padding: 10px;
+}
+
+.solid-bg {
+  background-color: $black-half;
+}
+
+.g-started {
+  a {
+    border: 1px solid;
+    margin-top: 20px;
+    padding: 15px;
+  }
+}
+
+.inverted-btn {
+  border: 1px solid;
+  border-radius: unset;
+  color: $black-7;
+  font-size: 12px;
+  transition: all .2s ease;
+}
+
+.inverted-btn:hover {
+  border-bottom: 5px solid;
+  color: $black;
+}
+
+.login-form {
+  padding: 30px;
+
+  h1 {
+    border-bottom: 1px solid $ece;
+    padding-bottom: 10px;
+    padding-left: 10px;
+  }
+
+  form {
+    margin-top: 30px;
+  }
+}
+
+.form-btn {
+  background-color: unset;
+  border: 1px solid;
+  border-radius: unset;
+  padding: 15px 30px;
+  transition: all .3s ease;
+}
+
+.form-btn:hover {
+  border-bottom: 5px solid;
+  color: $menu-hover;
+}
+
+.red {
+  color: $red;
+}
+
+.notification {
+  background: $black-half;
+  display: block;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 100px;
+  width: 100%;
+  z-index: 999;
+}

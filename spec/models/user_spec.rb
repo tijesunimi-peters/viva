@@ -1,7 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  describe '#has_many' do
+  describe "#has_many" do
     it { is_expected.to have_many(:bucketlists) }
   end
 

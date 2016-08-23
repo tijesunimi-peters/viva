@@ -1,0 +1,232 @@
+/* line 3, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.homepage-bg {
+  background: #000 url(/assets/homepage-b095468025485cf8faab074ac422225f93449688b24f4be5ee8bc992868d8f83.jpg) no-repeat fixed center;
+  background-size: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* line 10, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.homepage-bg::before {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: '';
+  height: 100%;
+  margin: -10px;
+  position: absolute;
+  width: 100%;
+}
+
+/* line 19, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+a {
+  color: #fff;
+}
+
+/* line 23, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+a:hover {
+  color: #ddcd5d;
+  text-decoration: none;
+}
+
+/* line 28, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.welcome-text {
+  color: #fff;
+}
+/* line 31, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.welcome-text h1 {
+  padding: 0;
+}
+
+/* line 36, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.note {
+  font-size: 18px;
+}
+/* line 39, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.note p {
+  line-height: 37px;
+}
+
+/* line 44, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex {
+  display: flex;
+}
+/* line 47, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .center {
+  align-items: center;
+}
+/* line 51, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .end {
+  align-items: flex-end;
+}
+/* line 55, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .bottom {
+  align-items: baseline;
+}
+/* line 59, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .start {
+  align-items: flex-start;
+}
+/* line 63, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-center {
+  justify-content: center;
+}
+/* line 67, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-end {
+  justify-content: flex-end;
+}
+/* line 71, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-start {
+  justify-content: flex-start;
+}
+/* line 75, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-around {
+  justify-content: space-around;
+}
+/* line 79, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-between {
+  justify-content: space-around;
+}
+
+/* line 84, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.viva-btn {
+  border-radius: unset;
+  color: #fff;
+  font-size: 12px;
+  transition: all .2s ease;
+}
+
+/* line 91, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.viva-btn:hover {
+  border-bottom: 5px solid;
+  color: #ddcd5d;
+}
+
+/* line 96, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* line 100, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.border {
+  border: 1px solid #fff;
+}
+
+/* line 104, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.white {
+  color: #fff;
+}
+
+/* line 109, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.pad10 {
+  padding: 10px;
+}
+
+/* line 113, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.solid-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 118, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.g-started a {
+  border: 1px solid;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+/* line 125, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.inverted-btn {
+  border: 1px solid;
+  border-radius: unset;
+  color: rgba(0, 0, 0, 0.78);
+  font-size: 12px;
+  transition: all .2s ease;
+}
+
+/* line 133, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.inverted-btn:hover {
+  border-bottom: 5px solid;
+  color: #000;
+}
+
+/* line 138, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.login-form {
+  padding: 30px;
+}
+/* line 141, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.login-form h1 {
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+/* line 147, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.login-form form {
+  margin-top: 30px;
+}
+
+/* line 152, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.form-btn {
+  background-color: unset;
+  border: 1px solid;
+  border-radius: unset;
+  padding: 15px 30px;
+  transition: all .3s ease;
+}
+
+/* line 160, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.form-btn:hover {
+  border-bottom: 5px solid;
+  color: #ddcd5d;
+}
+
+/* line 165, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.red {
+  color: #f00;
+}
+
+/* line 169, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.notification {
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 100px;
+  width: 100%;
+  z-index: 999;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+ /*@import 'https://fonts.googleapis.com/css?family=Lobster|Raleway:200';*/
+
+
+@font-face {
+  font-family: raleway;
+  src: url('fonts/Raleway-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: lobster;
+  src: url('fonts/Lobster-Regular.ttf');
+}
+
+body {
+  font-family: raleway;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: lobster;
+  font-weight: 200;
+}

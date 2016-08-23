@@ -1,4 +1,4 @@
- class UsersController < ApplicationController
+class UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -6,11 +6,14 @@
   def create
     @user = User.create user_params
     if @user.errors.empty?
-      flash[:success] = "Registration Successful"
+      session[:user_id] = @user.id
+      flash[:success] = msg("Registration")[:successful]
       redirect_to root_path
     else
-      flash[:errors] = @user.errors.full_messages.map { |msg| "#{msg}<br>" }.join
-      render :new
+      flash[:reg_errors] = @user.errors.full_messages.map do |msg|
+        "<li>#{msg}</li>"
+      end.join
+      redirect_to "/user/new"
     end
   end
 
@@ -18,11 +21,11 @@
 
   def user_params
     params.require(:user).permit(
-                                 :firstname,
-                                 :lastname,
-                                 :email,
-                                 :password,
-                                 :password_confirmation
-                                 )
+      :firstname,
+      :lastname,
+      :email,
+      :password,
+      :password_confirmation
+    )
   end
 end

@@ -1,19 +1,20 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Bucketlist, type: :model do
-  describe 'has_many' do
+  describe "has_many" do
     it { is_expected.to have_many :items }
   end
 
-  describe 'belongs_to' do
+  describe "belongs_to" do
     it { is_expected.to belong_to :user }
   end
 
-  describe 'validates' do
+  describe "validates" do
     it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_uniqueness_of(:name) }
   end
 
-  describe 'scopes' do
+  describe "scopes" do
     it { expect(Bucketlist).to respond_to(:paginate) }
     it { expect(Bucketlist).to respond_to(:search) }
     it { is_expected.to respond_to(:name) }
