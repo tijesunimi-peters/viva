@@ -7,7 +7,7 @@ RSpec.describe UsersController, type: :controller do
         post :create, params: { user: attributes_for(:user) }
         expect(User.last.firstname).to eql("Dummy")
         expect(session["flash"]["flashes"]["success"]).
-          to eql("Registration Successful")
+          to eql("Registration successful")
       end
     end
 

@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.create user_params
     if @user.errors.empty?
-      flash[:success] = "Registration Successful"
+      session[:user_id] = @user.id
+      flash[:success] = msg("Registration")[:successful]
       redirect_to root_path
     else
       flash[:reg_errors] = @user.errors.full_messages.map do |msg|

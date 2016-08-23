@@ -6,15 +6,16 @@ module Api
 
       def create
         item = @bucketlist.items.create allowed_params
-        render(json: item, status: 201) && return if item.errors.empty?
-        render json: { error: "Record not created" }, status: 500
+        render json: item, status: :created and return if item.errors.empty?
+        render json: { error: item.errors.full_messages },
+               status: :internal_server_error
       end
 
       def index
         if @bucketlist
           render json: @bucketlist.items, key_transform: :underscore
         else
-          render json: { error: "Bucketlist not found" }, status: 404
+          render json: { error: msg("Bucketlist")[:not_found] }, status: :not_found
         end
       end
 
@@ -26,13 +27,14 @@ module Api
         if @item.update allowed_params
           render json: @item
         else
-          render json: { error: "Error occured" }, status: 500
+          render json: { error: msg[:error_occured] },
+                 status: :internal_server_error
         end
       end
 
       def destroy
         @item.destroy
-        render json: { success: "Item deleted" }
+        render json: { success: msg("Item")[:deleted] }
       end
 
       private
@@ -43,8 +45,9 @@ module Api
 
       def get_item
         @item = @bucketlist.items.find_by(id: params[:item_id])
-        render(json: { error: "Item not found" }, status: 404) &&
-          return unless @item
+        render json: { error: msg("Item")[:not_found] },
+               status: :not_found and
+        return unless @item
       end
     end
   end

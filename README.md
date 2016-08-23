@@ -1,6 +1,6 @@
-# Viva API [![Build Status](https://travis-ci.org/andela-tpeters/viva.svg?branch=develop)](https://travis-ci.org/andela-tpeters/viva) [![Coverage Status](https://coveralls.io/repos/github/andela-tpeters/viva/badge.svg?branch=develop)](https://coveralls.io/github/andela-tpeters/viva?branch=develop) 
+# Viva API [![Build Status](https://travis-ci.org/andela-tpeters/viva.svg?branch=develop)](https://travis-ci.org/andela-tpeters/viva) [![Coverage Status](https://coveralls.io/repos/github/andela-tpeters/viva/badge.svg?branch=develop)](https://coveralls.io/github/andela-tpeters/viva?branch=develop)
 
-## Overview 
+## Overview
 
 Viva is an API that lets you manage a bucket list. A bucket list is simply a number of experiences or achievements that a person hopes to have or accomplish during their lifetime.
 
@@ -8,8 +8,8 @@ Viva is an API that lets you manage a bucket list. A bucket list is simply a num
 
 ## Getting Started
 
-Visit the [Viva API Documentation](http://viva.herokuapp.com/). It is clearly written and easy to understand and use.
-  
+Visit the [Viva API Documentation](http://vivaapi.herokuapp.com/). It is clearly written and easy to understand and use.
+
 
 
 ## External Dependencies
@@ -132,17 +132,17 @@ A typical bucket list requested by a user would look like this:
 
 
 <h3> Pagination </h3>
-The Viva API comes with pagination by default, so the number of results to display to users can be specified when listing the bucket lists, by supplying the <code>page</code> and <code>limit</code> in the request to the API. 
+The Viva API comes with pagination by default, so the number of results to display to users can be specified when listing the bucket lists, by supplying the <code>page</code> and <code>limit</code> in the request to the API.
 
 <h4>Example</h4>
 <b>Request:</b>
 <pre>
-GET https://viva.herokuapp.com/api/v1/bucketlists?page=2&limit=20
+GET https://vivaapiapi.herokuapp.com/api/v1/bucketlists?page=2&limit=20
 </pre>
 
 <b>Response:</b>
 <pre>
-20 bucket list records belonging to the logged in user starting from the 21st gets returned. 
+20 bucket list records belonging to the logged in user starting from the 21st gets returned.
 </pre>
 
 
@@ -154,7 +154,7 @@ Users can search for a bucket list by using it's name as the search parameter wh
 
 <b>Request:</b>
 ```bash
-  GET https://viva.herokuapp.com/api/v1/bucketlists?q="bucket1"
+  GET https://vivaapi.herokuapp.com/api/v1/bucketlists?q="bucket1"
 ```
 
 <b>Response:</b>
@@ -165,12 +165,12 @@ Bucket lists that include name “bucket1” gets returned
 
 
 <h3> Versions</h3>
-viva API currently has only one version and can be accessed via this link - <a href="https://viva.herokuapp.com/api/v1/">https://viva.herokuapp.com/api/v1/</a>
+viva API currently has only one version and can be accessed via this link - <a href="https://vivaapi.herokuapp.com/api/v1/">https://vivaapi.herokuapp.com/api/v1/</a>
 
 
 
 <h3>Running Test</h3>
-The Bucket List API uses `rspec` for testing. Continuous Integration is carried out via Travis CI. 
+The Bucket List API uses `rspec` for testing. Continuous Integration is carried out via Travis CI.
 
 To test locally, go through the following steps.
 
@@ -202,7 +202,7 @@ To test locally, go through the following steps.
 
   ```bash
   $  bundle exec rspec
-  ``` 
+  ```
 
 
 <h3>Limitations</h3>

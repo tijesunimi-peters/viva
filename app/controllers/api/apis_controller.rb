@@ -1,13 +1,14 @@
 module Api
   class ApisController < ActionController::API
     before_action :doorkeeper_authorize!
+    include Messages
 
     def route_not_found
-      render json: { error: "Route not found" }, status: :not_found
+      render json: { error: msg("Route")[:not_found] }, status: :not_found
     end
 
     def doorkeeper_unauthorized_render_options(error: nil)
-      { json: { error: "Token not found" } }
+      { json: { error: msg("Token")[:not_found] } }
     end
 
     private

@@ -2,7 +2,7 @@ class Bucketlist < ApplicationRecord
   has_many :items, dependent: :destroy
   belongs_to :user
 
-  validates :name, presence: true, allow_nil: false
+  validates :name, presence: true, allow_nil: false, uniqueness: true
 
   def self.paginate(page = 1, limit = 20)
     page = 1 if page.zero?

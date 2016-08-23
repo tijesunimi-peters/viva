@@ -6,7 +6,7 @@ module Api
 
       def index
         if params[:limit] && params[:limit].to_i > 100
-          render json: { error: "Maximum result per request is 100" },
+          render json: { error: msg[:limit_exceeded] },
                  status: 413
           return
         end
@@ -17,33 +17,36 @@ module Api
       def create
         bucketlist = current_user.bucketlists.create allowed_params
         if bucketlist.errors.empty?
-          render json: bucketlist, status: 201
-          return
+          render json: bucketlist, status: :created and return
         end
-        render json: bucketlist.errors.full_messages, status: 500
+        render json: { error: bucketlist.errors.full_messages },
+               status: :internal_server_error
       end
 
       def show
         if @bucketlist
           render json: @bucketlist, except: :items
         else
-          render json: { error: "Bucketlist not found" }, status: 404
+          render json: { error: msg("Bucketlist")[:not_found] },
+                 status: :not_found
         end
       end
 
       def update
         if @bucketlist.update allowed_params
-          render json: @bucketlist, status: 200
+          render json: @bucketlist, status: :ok
         else
-          render json: { error: "Error occured" }, status: 500
+          render json: { error: msg[:error_occured] },
+                 status: :internal_server_error
         end
       end
 
       def destroy
         if @bucketlist.destroy
-          render json: { success: "Bucketlist Deleted" }, status: 200
+          render json: { success: msg("Bucketlist")[:deleted] }, status: :ok
         else
-          render json: { error: "Error Occured" }, status: 500
+          render json: { error: msg[:error_occured] },
+                 status: :internal_server_error
         end
       end
 

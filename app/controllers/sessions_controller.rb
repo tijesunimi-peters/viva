@@ -6,21 +6,21 @@ class SessionsController < ApplicationController
     user = User.find_by(email: login_params[:email])
     if !user.nil? && user.authenticate(login_params[:password])
       session[:user_id] = user.id
-      flash[:success] = "Login Successful"
+      flash[:success] = msg("Login")[:successful]
       if session[:return_route]
         redirect_to session[:return_route]
       else
         redirect_to root_path
       end
     else
-      flash[:login_errors] = output_errors "Email/Password Incorrect"
+      flash[:errors] = output_errors msg[:login_failed]
       redirect_to "/user/session/new"
     end
   end
 
   def logout
     session.clear
-    flash[:success] = "Logout Successful"
+    flash[:success] = msg("Logout")[:successful]
     redirect_to root_path
   end
 

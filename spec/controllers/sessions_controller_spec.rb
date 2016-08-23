@@ -13,14 +13,14 @@ RSpec.describe SessionsController, type: :controller do
         post :create, params: login_input
         expect(session[:user_id]).to eql(1)
         expect(session["flash"]["flashes"]["success"]).
-          to eql("Login Successful")
+          to eql("Login successful")
       end
     end
 
     context "when login params is nil" do
       it "flashes error message" do
         post :create
-        expect(session["flash"]["flashes"]["login_errors"]).
+        expect(session["flash"]["flashes"]["errors"]).
           to eql("Email/Password Incorrect")
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe SessionsController, type: :controller do
           get :logout
           expect(session[:user_id]).to be_nil
           expect(session["flash"]["flashes"]["success"]).
-            to eql("Logout Successful")
+            to eql("Logout successful")
         end
       end
     end

@@ -128,6 +128,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    pg (0.18.4)
     pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -158,6 +159,11 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.0.0)
       actionpack (= 5.0.0)
       activesupport (= 5.0.0)
@@ -256,10 +262,12 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+  pg
   pry
   puma (~> 3.0)
   rails (~> 5.0.0)
   rails-controller-testing
+  rails_12factor
   rake
   rspec-rails
   sass-rails (~> 5.0)

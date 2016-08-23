@@ -10,18 +10,16 @@
   </head>
 
   <body>
-    <div style="position: absolute; top: 30%; right: 9%; z-index: 999" class="white">
       <% if flash[:success] %>
-      <div class="notification border">
-        <%= flash[:success] %>
-      </div>
+        <script type="text/javascript">
+          notify("<%= flash[:success] %>", 4000);
+        </script>
       <% end %>
       <% if flash[:errors] %>
-      <div class="notification border">
-        <%= flash[:errors].html_safe %>
-      </div>
+      <script type="text/javascript">
+        notify("<%= flash[:errors] %>", 4000);
+      </script>
       <% end %>
-    </div>
     <%= yield %>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

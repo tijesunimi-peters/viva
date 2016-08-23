@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
   belongs_to :bucketlist
 
-  validates :name, presence: true, allow_nil: false
+  validates :name, presence: true, allow_nil: false, uniqueness: true
 end

@@ -10,11 +10,12 @@
           <div class="flex center justify-end col-sm-12 col-lg-11">
             <div class="flex justify-end col-xs-6">
               <a href="/docs" class="btn viva-btn uppercase">Documentation</a>
+              <a href="/oauth/applications" class="btn viva-btn uppercase">OAuth Apps</a>
               <% if session[:user_id] %>
                 <%= link_to("Logout",  logout_path, class: "btn viva-btn uppercase" ) %>
               <% else %>
                 <%= link_to "Login", new_session_path, class: "btn viva-btn uppercase" %>
-                <a href="#" class="btn viva-btn uppercase">Register</a>
+                <a href="/user/new" class="btn viva-btn uppercase">Register</a>
               <% end %>
             </div>
           </div>

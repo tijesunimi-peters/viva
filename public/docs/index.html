@@ -169,7 +169,7 @@
 <pre class="highlight ruby"><code><span class="n">client</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
                             <span class="no">YOUR_CLIENT_ID</span><span class="p">,</span>
                             <span class="no">YOUR_CLIENT_SECRET</span><span class="p">,</span>
-                            <span class="ss">site: </span><span class="s2">"http://viva.herokuapp.com"</span><span class="p">,</span>
+                            <span class="ss">site: </span><span class="s2">"http://vivaapi.herokuapp.com"</span><span class="p">,</span>
                             <span class="ss">authorize_url: </span><span class="s2">"/oauth/authorize"</span><span class="p">,</span>
                             <span class="ss">token_url: </span><span class="s2">"/oauth/token"</span>
                             <span class="p">)</span>
@@ -246,7 +246,7 @@ Your callback uri is the route you want Viva to redirect to after user authoriza
 
 <p>Authorization url for users to authorize the app:</p>
 
-<p><code class="prettyprint">http://viva.herokuapp.com/oauth/authorize?client_id=YOUR_APP_ID&amp;redirect_uri=YOUR_REDIRECT_URI&amp;request_type=code</code></p>
+<p><code class="prettyprint">http://vivaapi.herokuapp.com/oauth/authorize?client_id=YOUR_APP_ID&amp;redirect_uri=YOUR_REDIRECT_URI&amp;request_type=code</code></p>
 
 <h3 id="authorization-url-http-response">Authorization url Http Response</h3>
 
@@ -262,7 +262,7 @@ http://YOUR_CALLBACK_URI?code=VIVA_GENERATED_CODE
                 redirect_uri=YOUR_REDIRECT_URI\
               "</span>
   <span class="n">response</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span>
-              <span class="s2">"http://viva.herokuapp.com"</span><span class="p">,</span>
+              <span class="s2">"http://vivaapi.herokuapp.com"</span><span class="p">,</span>
               <span class="n">req_params</span>
             <span class="p">)</span>
 
@@ -277,7 +277,7 @@ The access token can be stored in sessions and would be required for making requ
 
 <h2 id="using-oauth2-with-access-token-object">Using OAuth2 with Access Token Object</h2>
 <pre class="highlight ruby"><code><span class="c1"># initialize access token</span>
-<span class="vi">@client</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">APP_ID</span><span class="p">,</span> <span class="no">APP_SECRET</span><span class="p">,</span> <span class="ss">site: </span><span class="s2">"http://viva.herokuapp.com"</span> <span class="p">)</span>
+<span class="vi">@client</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">APP_ID</span><span class="p">,</span> <span class="no">APP_SECRET</span><span class="p">,</span> <span class="ss">site: </span><span class="s2">"http://vivaapi.herokuapp.com"</span> <span class="p">)</span>
 
 <span class="n">token_object</span> <span class="o">=</span> <span class="no">OAuth2</span><span class="o">::</span><span class="no">AccessToken</span><span class="p">.</span><span class="nf">from_hash</span><span class="p">(</span>
                   <span class="vi">@client</span><span class="p">,</span> <span class="p">{</span> <span class="ss">access_token: </span><span class="n">session</span><span class="p">[</span><span class="ss">:access_token</span><span class="p">]</span> <span class="p">}</span>
@@ -311,7 +311,7 @@ curl API_ENDPOINT -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"<
 
 <h3 id="initialize-access-token">Initialize Access Token</h3>
 
-<p><code class="prettyprint">@client = OAuth2::Client.new(APP_ID, APP_SECRET, site: &quot;http://viva.herokuapp.com&quot; )</code></p>
+<p><code class="prettyprint">@client = OAuth2::Client.new(APP_ID, APP_SECRET, site: &quot;http://vivaapi.herokuapp.com&quot; )</code></p>
 
 <p><code class="prettyprint">token_object = OAuth2::AccessToken.from_hash(
                   @client, { access_token: session[:access_token] }
@@ -347,7 +347,7 @@ curl API_ENDPOINT -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"<
 <h1 id="endpoints">Endpoints</h1>
 
 <aside class="notice">
-All endpoint call should be to http://viva.herokuapp.com/api/v1/
+All endpoint call should be to http://vivaapi.herokuapp.com/api/v1/
 </aside>
 
 <table><thead>
@@ -416,11 +416,11 @@ All endpoint call should be to http://viva.herokuapp.com/api/v1/
 <blockquote>
 <p>Request format</p>
 </blockquote>
-<pre class="highlight shell"><code>curl X POST http://viva.herokuapp.com/api/v1/bucketlists <span class="se">\</span>
+<pre class="highlight shell"><code>curl X POST http://vivaapi.herokuapp.com/api/v1/bucketlists <span class="se">\</span>
     -d <span class="s2">"name=bucketlist_name"</span> <span class="se">\</span>
     -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 </code></pre>
-<pre class="highlight ruby"><code><span class="n">response</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists"</span><span class="p">,</span>
+<pre class="highlight ruby"><code><span class="n">response</span> <span class="o">=</span> <span class="n">token</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists"</span><span class="p">,</span>
             <span class="p">{</span> <span class="ss">name: </span><span class="s2">"bucketlist_name"</span> <span class="p">}</span>
             <span class="p">)</span>
 </code></pre>
@@ -442,14 +442,14 @@ All endpoint call should be to http://viva.herokuapp.com/api/v1/
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://viva.herokuapp.com/api/v1/bucketlists</code></p>
+<p><code class="prettyprint">POST http://vivaapi.herokuapp.com/api/v1/bucketlists</code></p>
 
 <h2 id="get-all-bucketlists">Get All Bucketlists</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists"</span>
   -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="c1"># check above to learn how to initialize a token object</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists"</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists"</span>
 
 <span class="c1"># Using OAuth2</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">token_object</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -488,7 +488,7 @@ All endpoint call should be to http://viva.herokuapp.com/api/v1/
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://viva.herokuapp.com/api/v1/bucketlists</code></p>
+<p><code class="prettyprint">GET http://vivaapi.herokuapp.com/api/v1/bucketlists</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -514,7 +514,7 @@ All endpoint call should be to http://viva.herokuapp.com/api/v1/
 <h2 id="get-a-specific-bucetlist">Get a Specific Bucetlist</h2>
 <pre class="highlight ruby"><code>
 <span class="c1"># check above to learn how to initialize a token object</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/1"</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/1"</span>
 
 <span class="c1"># Using OAuth2</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">token_object</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -525,7 +525,7 @@ All endpoint call should be to http://viva.herokuapp.com/api/v1/
 
 </code></pre>
 <pre class="highlight shell"><code>
-curl <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/1"</span>
+curl <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/1"</span>
   -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 
 </code></pre>
@@ -547,7 +547,7 @@ curl <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/1"</span>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -566,7 +566,7 @@ curl <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/1"</span>
 <h2 id="updating-a-specific-bucetlist">Updating a Specific Bucetlist</h2>
 <pre class="highlight ruby"><code>
 <span class="c1"># check above to learn how to initialize a token object</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/1"</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/1"</span>
 
 <span class="c1"># Using OAuth2</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">name: </span><span class="s2">"new_bucketlist_name"</span> <span class="p">}</span>
@@ -578,7 +578,7 @@ curl <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/1"</span>
 
 </code></pre>
 <pre class="highlight shell"><code>
-curl -X POST http://viva.herokuapp.com/api/v1/bucketlists/1
+curl -X POST http://vivaapi.herokuapp.com/api/v1/bucketlists/1
   -d <span class="s2">"name=new_bucketlist_name"</span>
   -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 
@@ -601,7 +601,7 @@ curl -X POST http://viva.herokuapp.com/api/v1/bucketlists/1
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PUT http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">PUT http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -620,7 +620,7 @@ curl -X POST http://viva.herokuapp.com/api/v1/bucketlists/1
 <h2 id="deleting-a-specific-bucetlist">Deleting a Specific Bucetlist</h2>
 <pre class="highlight ruby"><code>
 <span class="c1"># check above to learn how to initialize a token object</span>
-<span class="n">path</span> <span class="o">=</span> <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/1"</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/1"</span>
 
 <span class="c1"># Using OAuth2</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">token_object</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="ss">params: </span><span class="n">payload</span><span class="p">)</span>
@@ -631,7 +631,7 @@ curl -X POST http://viva.herokuapp.com/api/v1/bucketlists/1
 
 </code></pre>
 <pre class="highlight shell"><code>
-curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
+curl -X DELETE http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
      -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 
 </code></pre>
@@ -648,7 +648,7 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">DELETE http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -671,12 +671,12 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 <blockquote>
 <p>Request format</p>
 </blockquote>
-<pre class="highlight shell"><code>curl X POST http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items <span class="se">\</span>
+<pre class="highlight shell"><code>curl X POST http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items <span class="se">\</span>
     -d <span class="s2">"name=item_name"</span> <span class="se">\</span>
     -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">response</span> <span class="o">=</span> <span class="n">token_object</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span>
-          <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items"</span><span class="p">,</span>
+          <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items"</span><span class="p">,</span>
           <span class="ss">params: </span><span class="p">{</span> <span class="ss">name: </span><span class="s2">"item_name"</span> <span class="p">}</span>
           <span class="p">)</span>
 </code></pre>
@@ -698,7 +698,7 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items</code></p>
+<p><code class="prettyprint">POST http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -719,11 +719,11 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 <blockquote>
 <p>Request format</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X GET http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items
+<pre class="highlight shell"><code>curl -X GET http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items
     -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">response</span> <span class="o">=</span> <span class="n">token_object</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
-          <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items"</span>
+          <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items"</span>
           <span class="p">)</span>
 </code></pre>
 
@@ -755,7 +755,7 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items</code></p>
+<p><code class="prettyprint">GET http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -776,11 +776,11 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 <blockquote>
 <p>Request format</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X GET http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;
+<pre class="highlight shell"><code>curl -X GET http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;
     -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">response</span> <span class="o">=</span> <span class="n">token_object</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span>
-          <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;"</span>
+          <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;"</span>
           <span class="p">)</span>
 </code></pre>
 
@@ -802,7 +802,7 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;</code></p>
+<p><code class="prettyprint">GET http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -827,12 +827,12 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 <blockquote>
 <p>Request format</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X PUT http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;
+<pre class="highlight shell"><code>curl -X PUT http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;
     -d <span class="s2">"name=new_item_name&amp;done=true"</span>
     -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">response</span> <span class="o">=</span> <span class="n">token_object</span><span class="p">.</span><span class="nf">put</span><span class="p">(</span>
-          <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;"</span><span class="p">,</span>
+          <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;"</span><span class="p">,</span>
           <span class="ss">params: </span><span class="p">{</span> <span class="ss">name: </span><span class="s2">"new_item_name"</span><span class="p">,</span> <span class="ss">done: </span><span class="kp">true</span> <span class="p">}</span>
           <span class="p">)</span>
 </code></pre>
@@ -855,7 +855,7 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">PUT http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;</code></p>
+<p><code class="prettyprint">PUT http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -880,11 +880,11 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 <blockquote>
 <p>Request format</p>
 </blockquote>
-<pre class="highlight shell"><code>curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;
+<pre class="highlight shell"><code>curl -X DELETE http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;
     -H <span class="s2">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span>
 </code></pre>
 <pre class="highlight ruby"><code><span class="n">response</span> <span class="o">=</span> <span class="n">token_object</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span>
-          <span class="s2">"http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;"</span>
+          <span class="s2">"http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;"</span>
           <span class="p">)</span>
 </code></pre>
 
@@ -900,7 +900,7 @@ curl -X DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;ID&gt;
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE http://viva.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;</code></p>
+<p><code class="prettyprint">DELETE http://vivaapi.herokuapp.com/api/v1/bucketlists/&lt;BUCKETLIST_ID&gt;/items/&lt;ITEM_ID&gt;</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
