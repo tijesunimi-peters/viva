@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ @import 'https://fonts.googleapis.com/css?family=Lobster|Raleway';
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lobster', cursive;
+  font-weight: 200;
+}

@@ -15,8 +15,8 @@ RSpec.describe UsersController, type: :controller do
       it "returns error message" do
         details = attributes_for(:user, password_confirmation: "", email: "")
         post :create, params: { user: details }
-        expect(session["flash"]["flashes"]["errors"]).
-          to include("Password confirmation doesn't match Password<br>")
+        expect(session["flash"]["flashes"]["reg_errors"]).
+          to include("Password confirmation doesn't match Password")
       end
     end
   end

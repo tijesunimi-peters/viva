@@ -20,7 +20,7 @@ RSpec.describe SessionsController, type: :controller do
     context "when login params is nil" do
       it "flashes error message" do
         post :create
-        expect(session["flash"]["flashes"]["errors"]).
+        expect(session["flash"]["flashes"]["login_errors"]).
           to eql("Email/Password Incorrect")
       end
     end

@@ -3,7 +3,11 @@ module Api
     before_action :doorkeeper_authorize!
 
     def route_not_found
-      render json: { error: "Route not found" }, status: 404
+      render json: { error: "Route not found" }, status: :not_found
+    end
+
+    def doorkeeper_unauthorized_render_options(error: nil)
+      { json: { error: "Token not found" } }
     end
 
     private

@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
         redirect_to root_path
       end
     else
-      flash[:errors] = output_errors "Email/Password Incorrect"
-      render :new
+      flash[:login_errors] = output_errors "Email/Password Incorrect"
+      redirect_to "/user/session/new"
     end
   end
 

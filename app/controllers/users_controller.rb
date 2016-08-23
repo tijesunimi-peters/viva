@@ -9,10 +9,10 @@ class UsersController < ApplicationController
       flash[:success] = "Registration Successful"
       redirect_to root_path
     else
-      flash[:errors] = @user.errors.full_messages.map do |msg|
-        "#{msg}<br>"
+      flash[:reg_errors] = @user.errors.full_messages.map do |msg|
+        "<li>#{msg}</li>"
       end.join
-      render :new
+      redirect_to "/user/new"
     end
   end
 
