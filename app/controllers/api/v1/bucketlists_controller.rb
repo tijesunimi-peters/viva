@@ -17,7 +17,7 @@ module Api
       def create
         bucketlist = current_user.bucketlists.create allowed_params
         if bucketlist.errors.empty?
-          render json: bucketlist, status: :created and return
+          render(json: bucketlist, status: :created) && return
         end
         render json: { error: bucketlist.errors.full_messages },
                status: :internal_server_error

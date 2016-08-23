@@ -6,7 +6,7 @@ module Api
 
       def create
         item = @bucketlist.items.create allowed_params
-        render json: item, status: :created and return if item.errors.empty?
+        render(json: item, status: :created) && return if item.errors.empty?
         render json: { error: item.errors.full_messages },
                status: :internal_server_error
       end
@@ -15,7 +15,8 @@ module Api
         if @bucketlist
           render json: @bucketlist.items, key_transform: :underscore
         else
-          render json: { error: msg("Bucketlist")[:not_found] }, status: :not_found
+          render json: { error: msg("Bucketlist")[:not_found] },
+                 status: :not_found
         end
       end
 
@@ -45,9 +46,9 @@ module Api
 
       def get_item
         @item = @bucketlist.items.find_by(id: params[:item_id])
-        render json: { error: msg("Item")[:not_found] },
-               status: :not_found and
-        return unless @item
+        render(json: { error: msg("Item")[:not_found] },
+               status: :not_found) &&
+          return unless @item
       end
     end
   end

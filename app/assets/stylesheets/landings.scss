@@ -1,39 +1,38 @@
-// Place all the styles related to the landings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
 
 .homepage-bg {
-  min-height: 100vh;
-  background: #000 image_url('homepage.jpg') no-repeat fixed center;
+  background: $black image_url('homepage.jpg') no-repeat fixed center;
   background-size: 100%;
+  min-height: 100vh;
   position: relative;
 }
 
 .homepage-bg::before {
-  position: absolute;
-  margin: -10px;
-  content: "";
-  width: 100%;
+  background-color: $black-half;
+  content: '';
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin: -10px;
+  position: absolute;
+  width: 100%;
 }
 
 a {
-  color: rgba(221,205,93,0.89);
+  color: $white;
 }
 
 a:hover {
-  color: rgba(221,205,93, 1);
+  color: $menu-hover;
   text-decoration: none;
 }
 
 .welcome-text {
-  color: white;
+  color: $white;
+
   h1 {
     padding: 0;
   }
-
 }
+
 .note {
   font-size: 18px;
 
@@ -64,30 +63,34 @@ a:hover {
   .justify-center {
     justify-content: center;
   }
+
   .justify-end {
     justify-content: flex-end;
   }
+
   .justify-start {
     justify-content: flex-start;
   }
+
   .justify-around {
     justify-content: space-around;
   }
+
   .justify-between {
     justify-content: space-around;
   }
 }
 
 .viva-btn {
-  color: rgba(221,221,221,0.89);
-  transition: all .2s ease;
   border-radius: unset;
+  color: $white;
   font-size: 12px;
+  transition: all .2s ease;
 }
 
 .viva-btn:hover {
-  color: rgba(241,225,113,1);
   border-bottom: 5px solid;
+  color: $menu-hover;
 }
 
 .uppercase {
@@ -95,11 +98,11 @@ a:hover {
 }
 
 .border {
-  border: 1px solid white;
+  border: 1px solid $white;
 }
 
 .white {
-  color: white;
+  color: $white;
 }
 
 
@@ -108,37 +111,37 @@ a:hover {
 }
 
 .solid-bg {
-  background-color: rgba(0, 0, 0, .4);
+  background-color: $black-half;
 }
 
 .g-started {
   a {
     border: 1px solid;
-    padding: 15px;
     margin-top: 20px;
+    padding: 15px;
   }
 }
 
 .inverted-btn {
   border: 1px solid;
-  color: rgba(0,0,0,0.78);
-  transition: all .2s ease;
   border-radius: unset;
+  color: $black-7;
   font-size: 12px;
+  transition: all .2s ease;
 }
 
 .inverted-btn:hover {
-  color: rgba(0,0,0,1);
   border-bottom: 5px solid;
+  color: $black;
 }
 
 .login-form {
   padding: 30px;
 
   h1 {
-    border-bottom: 1px solid #ececec;
-    padding-left: 10px;
+    border-bottom: 1px solid $ece;
     padding-bottom: 10px;
+    padding-left: 10px;
   }
 
   form {
@@ -148,29 +151,29 @@ a:hover {
 
 .form-btn {
   background-color: unset;
-  padding: 15px 30px;
   border: 1px solid;
   border-radius: unset;
+  padding: 15px 30px;
   transition: all .3s ease;
 }
 
 .form-btn:hover {
-  color: rgba(221,205,93,0.89);
   border-bottom: 5px solid;
+  color: $menu-hover;
 }
 
 .red {
-  color: red;
+  color: $red;
 }
 
 .notification {
-  padding: 20px;
-  text-transform: uppercase;
-  background: rgba(0,0,0,.5);
-  position: absolute;
-  top: 100px;
-  z-index: 999;
+  background: $black-half;
   display: block;
+  padding: 20px;
+  position: absolute;
   text-align: center;
+  text-transform: uppercase;
+  top: 100px;
   width: 100%;
+  z-index: 999;
 }
