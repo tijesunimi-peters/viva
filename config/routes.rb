@@ -27,9 +27,8 @@ Rails.application.routes.draw do
       get "/bucketlists/:id/items/:item_id", to: "items#show"
       put "/bucketlists/:id/items/:item_id", to: "items#update"
       delete "/bucketlists/:id/items/:item_id", to: "items#destroy"
-
-      match "*url", to: "apis#route_not_found", via: :all
     end
+    match "*url", to: "apis#route_not_found", via: :all
   end
 
   match "*url", to: "application#route_not_found", via: :all
