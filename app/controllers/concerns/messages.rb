@@ -2,6 +2,7 @@ module Messages
   def msg(val = nil)
     {
       not_found: "#{val} not found",
+      required: "#{val} required",
       error_occured: "Error occured",
       deleted: "#{val} deleted",
       limit_exceeded: "Maximum result per request is 100",

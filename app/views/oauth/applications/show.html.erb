@@ -1,5 +1,6 @@
+<%= render "application_layout" do %>
 <div class="page-header">
-  <h1><%= t('.title', name: @application.name) %></h1>
+  <h2><%= @application.name %></h2>
 </div>
 
 <div class="row">
@@ -37,3 +38,4 @@
     <p><%= render 'delete_form', application: @application, submit_btn_css: 'btn btn-danger' %></p>
   </div>
 </div>
+<% end %>

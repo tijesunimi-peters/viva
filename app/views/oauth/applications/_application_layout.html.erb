@@ -1,0 +1,17 @@
+<div class="container oauth-container pad10">
+  <div class="row flex">
+    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 logo flex justify-center">
+      <a href="/">
+        <h1>Viva</h1>
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11 flex">
+      <p class="flex center pull-right justify-end fullwidth">
+        <%= link_to t('.home'), root_path, class: 'btn viva-btn uppercase black' %>
+        <%= link_to t('.oauth.apps'), oauth_applications_path, class: 'btn viva-btn uppercase black' %>
+        <%= link_to t('.new'), new_oauth_application_path, class: 'btn viva-btn uppercase black' %>
+      </p>
+    </div>
+  </div>
+  <%= yield %>
+</div>

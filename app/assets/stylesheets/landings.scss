@@ -5,6 +5,10 @@
   background-size: 100%;
   min-height: 100vh;
   position: relative;
+
+  .container {
+    min-height: 700px
+  }
 }
 
 .homepage-bg::before {
@@ -30,6 +34,21 @@ a:hover {
 
   h1 {
     padding: 0;
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
+  }
+}
+
+.tagline {
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.message-cont {
+  @media screen and (max-width: 768px) {
+    width: $col9;
   }
 }
 
@@ -43,6 +62,11 @@ a:hover {
 
 .flex {
   display: flex;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
 
   .center {
     align-items: center;
@@ -50,6 +74,9 @@ a:hover {
 
   .end {
     align-items: flex-end;
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
   }
 
   .bottom {
@@ -58,6 +85,9 @@ a:hover {
 
   .start {
     align-items: flex-start;
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
   }
 
   .justify-center {
@@ -66,10 +96,16 @@ a:hover {
 
   .justify-end {
     justify-content: flex-end;
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
   }
 
   .justify-start {
     justify-content: flex-start;
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
   }
 
   .justify-around {
@@ -115,6 +151,10 @@ a:hover {
 }
 
 .g-started {
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+
   a {
     border: 1px solid;
     margin-top: 20px;
