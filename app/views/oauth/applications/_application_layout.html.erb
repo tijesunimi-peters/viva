@@ -1,0 +1,27 @@
+<div class="container oauth-container pad10">
+  <div class="row flex">
+    <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 logo flex justify-center">
+      <a href="/">
+        <h1>Viva</h1>
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11 flex">
+      <p class="flex center pull-right justify-end fullwidth">
+        <%= link_to t('.home'), root_path, class: 'btn viva-btn uppercase black' %>
+        <%= link_to t('.oauth.apps'), oauth_applications_path, class: 'btn viva-btn uppercase black' %>
+        <%= link_to t('.new'), new_oauth_application_path, class: 'btn viva-btn uppercase black' %>
+      </p>
+    </div>
+  </div>
+  <div style="min-height: 70vh">
+    <%= yield %>
+  </div>
+  <div class="flex end">
+    <div class="col-xs-12 flex">
+      <div class="flex center col-xs-3 justify-between black uppercase" style="min-height: 50px; padding: 0; font-size: 10px;">
+        <span>&copy; 2016 Viva</span>
+        <span>All Rigths Reserved</span>
+      </div>
+    </div>
+  </div>
+</div>

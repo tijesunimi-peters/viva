@@ -1,5 +1,5 @@
 module Api
-  class ApisController < ActionController::API
+  class ApisController < ApplicationController
     before_action :doorkeeper_authorize!
     include Messages
 
@@ -8,7 +8,7 @@ module Api
     end
 
     def doorkeeper_unauthorized_render_options(error: nil)
-      { json: { error: msg("Token")[:not_found] } }
+      { json: { error: msg("Token")[:required] } }
     end
 
     private

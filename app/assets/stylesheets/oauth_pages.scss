@@ -1,0 +1,30 @@
+@import "variables";
+
+.fullwidth {
+  width: $col12;
+}
+
+a {
+  color: black;
+}
+
+.logo {
+  @media screen and (max-width: 768px) {
+    width: $col12;
+  }
+}
+
+.oauth-container {
+  font-family: sans-serif;
+  font-weight: 300 !important;
+}
+
+.black {
+  color: $black;
+}
+
+.page-header {
+  h2 {
+    font-family: raleway;
+  }
+}
