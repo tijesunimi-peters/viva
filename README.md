@@ -29,30 +29,6 @@ Below is the list of available endpoints in the Viva API. Some end points are no
 </tr>
 
 <tr>
-  <td>GET /api/v1/</td>
-  <td>Welcome user</td>
-  <td>TRUE</td>
-</tr>
-
-<tr>
-  <td>POST /api/v1/auth/create_user</td>
-  <td>Create a new user</td>
-  <td>TRUE</td>
-</tr>
-
-<tr>
-  <td>POST /api/v1/auth/login</td>
-  <td>Logs a user in</td>
-  <td>TRUE</td>
-</tr>
-
-<tr>
-  <td>DELETE /api/v1/auth/logout</td>
-  <td>Logs a user out</td>
-  <td>FALSE</td>
-</tr>
-
-<tr>
   <td>GET /api/v1/bucketlists</td>
   <td>List all the created bucket lists</td>
   <td>FALSE</td>

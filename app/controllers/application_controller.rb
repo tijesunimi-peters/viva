@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
   def route_not_found
     render json: { error: msg("Route")[:not_found] }, status: :not_found
   end
+
 end

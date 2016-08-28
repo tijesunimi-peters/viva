@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :bucketlists
+  has_many :oauth_applications,
+    class_name: 'Doorkeeper::Application',
+    as: :owner
 
   validates :firstname,
             :lastname,
