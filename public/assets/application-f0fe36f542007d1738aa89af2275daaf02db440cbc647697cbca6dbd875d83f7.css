@@ -1,0 +1,325 @@
+/* line 3, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.homepage-bg {
+  background: #000 url(/assets/homepage-b095468025485cf8faab074ac422225f93449688b24f4be5ee8bc992868d8f83.jpg) no-repeat fixed center;
+  background-size: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+/* line 9, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.homepage-bg .container {
+  min-height: 700px;
+}
+
+/* line 14, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.homepage-bg::before {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: '';
+  height: 100%;
+  margin: -10px;
+  position: absolute;
+  width: 100%;
+}
+
+/* line 23, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+a {
+  color: #fff;
+}
+
+/* line 27, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+a:hover {
+  color: #ddcd5d;
+  text-decoration: none;
+}
+
+/* line 32, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.welcome-text {
+  color: #fff;
+}
+/* line 35, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.welcome-text h1 {
+  padding: 0;
+}
+@media screen and (max-width: 768px) {
+  /* line 35, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .welcome-text h1 {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* line 43, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .tagline {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* line 49, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .message-cont {
+    width: 75%;
+  }
+}
+
+/* line 55, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.note {
+  font-size: 18px;
+}
+/* line 58, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.note p {
+  line-height: 37px;
+}
+
+/* line 63, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  /* line 63, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .flex {
+    justify-content: center;
+  }
+}
+/* line 71, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .center {
+  align-items: center;
+}
+/* line 75, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .end {
+  align-items: flex-end;
+}
+@media screen and (max-width: 768px) {
+  /* line 75, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .flex .end {
+    justify-content: center;
+  }
+}
+/* line 82, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .bottom {
+  align-items: baseline;
+}
+/* line 86, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .start {
+  align-items: flex-start;
+}
+@media screen and (max-width: 768px) {
+  /* line 86, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .flex .start {
+    justify-content: center;
+  }
+}
+/* line 93, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-center {
+  justify-content: center;
+}
+/* line 97, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-end {
+  justify-content: flex-end;
+}
+@media screen and (max-width: 768px) {
+  /* line 97, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .flex .justify-end {
+    justify-content: center;
+  }
+}
+/* line 104, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-start {
+  justify-content: flex-start;
+}
+@media screen and (max-width: 768px) {
+  /* line 104, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .flex .justify-start {
+    justify-content: center;
+  }
+}
+/* line 111, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-around {
+  justify-content: space-around;
+}
+/* line 115, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.flex .justify-between {
+  justify-content: space-around;
+}
+
+/* line 120, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.viva-btn {
+  border-radius: unset;
+  color: #fff;
+  font-size: 12px;
+  transition: all .2s ease;
+}
+
+/* line 127, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.viva-btn:hover {
+  border-bottom: 5px solid;
+  color: #ddcd5d;
+}
+
+/* line 132, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* line 136, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.border {
+  border: 1px solid #fff;
+}
+
+/* line 140, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.white {
+  color: #fff;
+}
+
+/* line 145, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.pad10 {
+  padding: 10px;
+}
+
+/* line 149, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.solid-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+  /* line 153, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+  .g-started {
+    text-align: center;
+  }
+}
+/* line 158, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.g-started a {
+  border: 1px solid;
+  margin-top: 20px;
+  padding: 15px;
+}
+
+/* line 165, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.inverted-btn {
+  border: 1px solid;
+  border-radius: unset;
+  color: rgba(0, 0, 0, 0.78);
+  font-size: 12px;
+  transition: all .2s ease;
+}
+
+/* line 173, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.inverted-btn:hover {
+  border-bottom: 5px solid;
+  color: #000;
+}
+
+/* line 178, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.login-form {
+  padding: 30px;
+}
+/* line 181, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.login-form h1 {
+  border-bottom: 1px solid #ececec;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+/* line 187, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.login-form form {
+  margin-top: 30px;
+}
+
+/* line 192, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.form-btn {
+  background-color: unset;
+  border: 1px solid;
+  border-radius: unset;
+  padding: 15px 30px;
+  transition: all .3s ease;
+}
+
+/* line 200, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.form-btn:hover {
+  border-bottom: 5px solid;
+  color: #ddcd5d;
+}
+
+/* line 205, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.red {
+  color: #f00;
+}
+
+/* line 209, /Users/andela/Projects/viva/app/assets/stylesheets/landings.scss */
+.notification {
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 100px;
+  width: 100%;
+  z-index: 999;
+}
+/* line 3, /Users/andela/Projects/viva/app/assets/stylesheets/oauth_pages.scss */
+.fullwidth {
+  width: 100%;
+}
+
+/* line 7, /Users/andela/Projects/viva/app/assets/stylesheets/oauth_pages.scss */
+a {
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  /* line 11, /Users/andela/Projects/viva/app/assets/stylesheets/oauth_pages.scss */
+  .logo {
+    width: 100%;
+  }
+}
+
+/* line 17, /Users/andela/Projects/viva/app/assets/stylesheets/oauth_pages.scss */
+.oauth-container {
+  font-family: sans-serif;
+  font-weight: 300 !important;
+}
+
+/* line 22, /Users/andela/Projects/viva/app/assets/stylesheets/oauth_pages.scss */
+.black {
+  color: #000;
+}
+
+/* line 27, /Users/andela/Projects/viva/app/assets/stylesheets/oauth_pages.scss */
+.page-header h2 {
+  font-family: raleway;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+ /*@import 'https://fonts.googleapis.com/css?family=Lobster|Raleway:200';*/
+
+
+@font-face {
+  font-family: raleway;
+  src: url('fonts/Raleway-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: lobster;
+  src: url('fonts/Lobster-Regular.ttf');
+}
+
+body {
+  font-family: raleway;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: lobster;
+  font-weight: 200;
+}
