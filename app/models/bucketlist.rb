@@ -8,10 +8,10 @@ class Bucketlist < ApplicationRecord
     page = 1 if page.zero?
     limit = 20 if limit.zero?
     offset_number = (page - 1) * limit
-    offset(offset_number).limit(limit)
+    order(id: "asc").offset(offset_number).limit(limit)
   end
 
   def self.search(query)
-    where("name like ?", "%#{query}%")
+    where("lower(name) like ?", "%#{query.downcase}%")
   end
 end
