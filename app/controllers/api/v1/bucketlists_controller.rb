@@ -5,13 +5,9 @@ module Api
       before_action :get_bucketlists, only: [:index]
 
       def index
-        if params[:limit] && params[:limit].to_i > 100
-          render json: { error: msg[:limit_exceeded] },
-                 status: 413
-          return
-        end
-
-        render json: @bucketlists, key_transform: :underscore
+        render(json: @bucketlists, key_transform: :underscore) &&
+        return if @bucketlists
+        render json: { error: msg[:limit_exceeded] }, status: 413
       end
 
       def create
@@ -57,15 +53,14 @@ module Api
       end
 
       def get_bucketlists
-        return if params[:limit] && params[:limit].to_i > 100
         query = params[:q]
 
         if query
           @bucketlists = current_user.bucketlists.search(query)
         else
           @bucketlists = current_user.bucketlists.paginate(
-            params[:page].to_i,
-            params[:limit].to_i
+            params[:page],
+            params[:limit]
           )
         end
       end
