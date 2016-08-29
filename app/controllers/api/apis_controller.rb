@@ -1,5 +1,5 @@
 module Api
-  class ApisController < ApplicationController
+  class ApisController < ActionController::API
     before_action :doorkeeper_authorize!
     include Messages
 
