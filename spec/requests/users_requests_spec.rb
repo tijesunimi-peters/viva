@@ -15,6 +15,7 @@ RSpec.describe "UsersRequests", type: :request do
       get "/api/v1/user"
       result = JSON.parse(response.body)["user"]
       expect(result["firstname"]).to eql(@user.firstname)
+      expect(result["id"]).to eql(@user.id)
     end
   end
 end

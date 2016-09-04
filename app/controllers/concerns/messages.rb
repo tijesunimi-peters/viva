@@ -10,4 +10,12 @@ module Messages
       login_failed: "Email/Password Incorrect"
     }
   end
+
+  def output_errors(errors)
+    if errors.is_a? Array
+      errors.map { |item| "#{item}<br>" }.join
+    else
+      errors
+    end
+  end
 end

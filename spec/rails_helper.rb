@@ -17,7 +17,9 @@ end
 
 ActiveRecord::Migration.maintain_test_schema!
 
+
 RSpec.configure do |config|
+  Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
   
   config.include FactoryGirl::Syntax::Methods
 

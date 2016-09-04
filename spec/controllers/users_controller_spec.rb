@@ -1,6 +1,12 @@
 require "rails_helper"
 
 RSpec.describe UsersController, type: :controller do
+  let(:invalid_attributes) { attributes_for(
+                                            :user,
+                                            password_confirmation: "",
+                                            email: ""
+                                            )
+                            }
   describe "#create" do
     context "when details validates" do
       it "creates user" do
@@ -13,8 +19,7 @@ RSpec.describe UsersController, type: :controller do
 
     context "when details does not validate" do
       it "returns error message" do
-        details = attributes_for(:user, password_confirmation: "", email: "")
-        post :create, params: { user: details }
+        post :create, params: { user: invalid_attributes }
         expect(session["flash"]["flashes"]["reg_errors"]).
           to include("Password confirmation doesn't match Password")
       end

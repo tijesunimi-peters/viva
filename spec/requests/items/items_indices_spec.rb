@@ -1,14 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Items::Indices", type: :request do
-  let(:token) { double acceptable?: true, resource_owner_id: 1 }
-
-  before do
-    allow_any_instance_of(Api::V1::ItemsController).
-      to receive(:doorkeeper_token).
-      and_return(token)
-    create :user
-  end
+  include_examples "item token"
 
   describe "GET /bucetlist/:id/items" do
     before do

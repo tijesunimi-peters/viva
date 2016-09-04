@@ -12,14 +12,12 @@ class Oauth::ApplicationsController < ApplicationController
   end
 
   def create
-    @application = Doorkeeper::Application.new app_params
-    @application.owner = @user if Doorkeeper.configuration.confirm_application_owner?
-    if @application.save
+    if app.save
       flash[:success] = msg("App creation")[:successful]
-      redirect_to oauth_application_url(@application)
-    else
-      render :new
+      redirect_to oauth_application_url(app) && return
     end
+    @application = app
+    render :new
   end
 
   def show
@@ -47,11 +45,17 @@ class Oauth::ApplicationsController < ApplicationController
 
   def app_params
     params.require(:doorkeeper_application).permit :name,
-      :redirect_uri,
-      :scopes
+                                                   :redirect_uri,
+                                                   :scopes
   end
 
   def get_app
-    @application = @user.oauth_applications.find_by id: params[:id]
+    @application = @user.oauth_applications.find_by(id: params[:id])
+  end
+
+  def app
+    app = Doorkeeper::Application.new app_params
+    app.owner = @user if Doorkeeper.configuration.confirm_application_owner?
+    app
   end
 end

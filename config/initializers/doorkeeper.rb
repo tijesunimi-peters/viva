@@ -6,9 +6,9 @@ Doorkeeper.configure do
     User.find_by_id(session[:user_id]) || redirect_to(new_session_url)
   end
 
-  access_token_generator 'Doorkeeper::JWT'
+  access_token_generator "Doorkeeper::JWT"
   use_refresh_token
-  enable_application_owner :confirmation => true
+  enable_application_owner confirmation: true
   authorization_code_expires_in 10.minutes
   access_token_expires_in 2.hours
 end

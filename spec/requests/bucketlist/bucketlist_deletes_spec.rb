@@ -1,14 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Bucketlist::Deletes", type: :request do
-  let(:token) { double acceptable?: true, resource_owner_id: 1 }
-
-  before do
-    allow_any_instance_of(Api::V1::BucketlistsController).
-      to receive(:doorkeeper_token).
-      and_return(token)
-    create :user
-  end
+  include_examples "bucketlist token"
 
   describe "DELETE /bucketlists/:id" do
     context "when bucketlist exist" do
@@ -20,8 +13,16 @@ RSpec.describe "Bucketlist::Deletes", type: :request do
       it "deletes the bucketlist" do
         delete "/api/v1/bucketlists/1"
         expect(response).to have_http_status(200)
-        bktlist = Bucketlist.find_by id: 1
-        expect(bktlist).to be_nil
+        bucketlist = Bucketlist.find_by id: 1
+        expect(bucketlist).to be_nil
+      end
+    end
+
+    context 'when bucektlist does not exist' do
+      it 'returns not found error' do
+        delete "/api/v1/bucketlists/1"
+        result = JSON.parse response.body
+        expect(result['error']).to eql("Bucketlist not found")
       end
     end
   end

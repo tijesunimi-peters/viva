@@ -6,7 +6,7 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe "#create" do
-    let(:login_input) { { email: "dummy@dummy.com", password: "password" } }
+    let(:login_input) { attributes_for :login_input }
 
     context "when input is correct" do
       it "sets the session" do
@@ -17,7 +17,7 @@ RSpec.describe SessionsController, type: :controller do
       end
     end
 
-    context "when login params is nil" do
+    context "when login input is nil" do
       it "flashes error message" do
         post :create
         expect(session["flash"]["flashes"]["errors"]).

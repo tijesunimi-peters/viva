@@ -19,6 +19,8 @@ module Api
 
     def get_bucketlist
       @bucketlist = current_user.bucketlists.find_by(id: params[:id])
+      render json: { error: msg("Bucketlist")[:not_found] },
+             status: :not_found unless @bucketlist
     end
   end
 end

@@ -20,12 +20,7 @@ module Api
       end
 
       def show
-        if @bucketlist
-          render json: @bucketlist, except: :items
-        else
-          render json: { error: msg("Bucketlist")[:not_found] },
-                 status: :not_found
-        end
+        render json: @bucketlist, except: :items
       end
 
       def update
@@ -38,12 +33,8 @@ module Api
       end
 
       def destroy
-        if @bucketlist.destroy
-          render json: { success: msg("Bucketlist")[:deleted] }, status: :ok
-        else
-          render json: { error: msg[:error_occured] },
-                 status: :internal_server_error
-        end
+        @bucketlist.destroy
+        render json: { success: msg("Bucketlist")[:deleted] }, status: :ok
       end
 
       private

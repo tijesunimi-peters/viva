@@ -1,14 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Items::Creates", type: :request do
-  let(:token) { double acceptable?: true, resource_owner_id: 1 }
-
-  before do
-    allow_any_instance_of(Api::V1::ItemsController).
-      to receive(:doorkeeper_token).
-      and_return(token)
-    create :user
-  end
+  include_examples "item token"
 
   describe "POST /bucketlists/:id/items" do
     context "when details validate" do

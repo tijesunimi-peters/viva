@@ -6,7 +6,7 @@ class Bucketlist < ApplicationRecord
   UPPERLIMIT = 100
   LOWERLIMIT = 20
 
-  def self.paginate(page, limit)
+  def self.paginate(page = nil, limit = nil)
     return if limit.to_i > UPPERLIMIT
     page = 1 if page.to_i.zero?
     limit = LOWERLIMIT if limit.to_i.zero?
